@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+// ! You cannot call a reference reciever if the struct has not been assigned to a variable
+// ! If you call a value reciever on a pointer that is nil, the program will panic at runtime
+
 type Foo struct {
 	A int
 	B string

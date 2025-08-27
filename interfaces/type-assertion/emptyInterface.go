@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// ! In this file we will use an empty interface and demonstrate type assertion and safe type assertion
+
 func main() {
 	// i is declared as an empty interface, which can store any type(string, int, struct, etc)
 	var i interface{}

@@ -11,11 +11,14 @@ func main() {
 	// Handles requests to the /hello path
 	http.HandleFunc("/hello", Handler)
 
+	// Listening to requests on port 8080
 	http.ListenAndServe(":8080", nil)
 
 }
 
 func Handler(rw http.ResponseWriter, req *http.Request) {
+	// Using the url to get the value of name (8080?name=Bob)
 	name := req.URL.Query().Get("name")
+	// Writing to the web page
 	rw.Write([]byte(fmt.Sprintf("Hello, %s", name)))
 }

@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+//? A method in go is a func that is assoiciated with a specific type.
+//? Methods are defined with a reciever argument, which binds the method to and instance of that type.
+///? This allows the method to operate on the data encapsulated within that instance.
+
 // ! You cannot call a reference reciever if the struct has not been assigned to a variable
 // ! If you call a value reciever on a pointer that is nil, the program will panic at runtime
 
@@ -14,7 +18,7 @@ func (f Foo) fieldCount() int {
 	return 2
 }
 
-// Method declaration where method reciever = (f Foo) (between keyword func and the name of the method)
+// Method declaration where method reciever (f) is of type Foo
 func (f Foo) String() string {
 	// Sprintf is used as a format string
 	return fmt.Sprintf("A: %d and B: %s", f.A, f.B)

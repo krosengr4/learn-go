@@ -6,6 +6,8 @@ type Rectangle struct {
 	width, height int
 }
 
+// method that is associated with Rectangle struct.
+// returns the area of the rectangle passed in
 func (r Rectangle) CalculateArea() int {
 	return r.width * r.height
 }

@@ -13,22 +13,28 @@ type rangeTest struct {
 	max int
 }
 
-func main() {
-	result := runTests(10, []tester{
-		rangeTest{min: 5, max: 20},
-		divTest(5),
-	})
-
-	fmt.Println("All tests passed:", result)
+// global struct with 2 ints
+type addTest struct {
+	num1, num2 int
 }
 
-// Declaring an interface.
+// ! Declaring an interface.
 type tester interface {
 	// Method signatures
 	test(int) bool
 }
 
-// Takes in an int, and a slice of types that implements tester(interface)
+func main() {
+	result := runTests(10, []tester{
+		rangeTest{min: 5, max: 20},
+		divTest(5),
+		addTest{num1: 10, num2: 11},
+	})
+
+	fmt.Println("Did all tests pass:", result)
+}
+
+// Takes in an int, and a slice of interface types that implements tester(interface)
 func runTests(i int, tests []tester) bool {
 	result := true
 	// Loop through each tester in the slice, call the test method on the current tester, and combine result with existing result
@@ -39,14 +45,19 @@ func runTests(i int, tests []tester) bool {
 	return result
 }
 
-// method that takes in a var of type rangeTest(struct) and return a boolean
+// method that tests that the number passed in is between a min and a max
 func (rt rangeTest) test(i int) bool {
 	// Makes sure that i is between rangeTest min and max
 	return rt.min <= i && rt.max >= i
 }
 
-// method that takes type divTest and returns a bool
+// method that tests that, when dividing our numbers, we get a whole number
 func (dt divTest) test(i int) bool {
 	// makes sure that i / divTest is a whole number
 	return i%int(dt) == 0
+}
+
+// method that tests that the sum of 2 numbers is greater than 20
+func (at addTest) test(i int) bool {
+	return at.num1+at.num2 > 20
 }

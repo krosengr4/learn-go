@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 //! You can make a function implement an interface by defining a function type and
 //! defining a method on the function type
@@ -38,5 +42,7 @@ func main() {
 			return i < 20
 		}),
 	})
-	fmt.Println(result)
+
+	resultString := strconv.FormatBool(result)
+	fmt.Println("DID THE TEST PASS?:", strings.ToUpper(resultString))
 }

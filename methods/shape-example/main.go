@@ -85,6 +85,8 @@ func main() {
 
 		}
 
+	} else {
+		fmt.Println("ERROR: Invalid number entered for shape!")
 	}
 
 }

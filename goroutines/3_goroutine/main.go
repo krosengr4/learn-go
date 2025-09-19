@@ -30,6 +30,9 @@ func main() {
 	// Adding 1 weight group to the goroutine
 	weightGroup.Add(1)
 
+	// ? When you launch a goroutine that uses a variable from its enclosing scope, that function becomes a *closure*
+	// ? A closure will capture the outer variables by reference
+
 	// Launch a closure as a Goroutine
 	go func() {
 		runMe()

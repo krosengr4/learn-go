@@ -33,6 +33,7 @@ func main() {
 
 	fmt.Println("in main, e is nil:", e == nil)
 	// This will be false because the error interface is associated with a MyError type
+	// ! NEVER define a variable to be your own error type, bc if returned, it will no longer be nil
 	fmt.Println("in main, me is nil:", me == nil)
 	fmt.Println(e)
 	fmt.Println(me)

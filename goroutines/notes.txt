@@ -1,0 +1,14 @@
+- Concurrency in Go is based on CSP and built into the language
+
+*** Goroutines ***
+- The core concept of Go's Concurrency model is the Goroutine.
+    - They are lightweight processes managed by the Go runtime
+        - They are not threads
+
+    - The Go runtime creates a number of threads at startup and then schedules them across threads automatically
+        - Goroutine creation is faster than thread creation because you arent creating an operating system-level resource.
+        - Goroutine stack sizes are smaller than thread stack sizes and can grow as needed
+
+    - Goroutines are faster to create, more efficient with memory, and faster to switch
+    
+    - Can have up to tens of thousands in a single process!

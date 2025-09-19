@@ -1,0 +1,23 @@
+*** Channels ***
+
+- Channels = A type in Go for transferring data between goroutines
+- One (or more) goroutines write to a Channel
+- One (or more) goroutines read back from the same channel 
+
+- Channels are intended to be shared between Go routines
+
+- Like maps and slices, Data on channels is typed
+    - Create new channel using the built in Make func, passing in the keyword chan, and the type of data you want to pass over the channel
+
+- By default, reads and writes are synchronus
+    - When a goroutine writes to a channel, it pauses until another Goroutine reads from that channel
+    - When a Goroutine wants to read from a channel, and there is no value waiting, the Goroutine pauses until a value is present
+
+- Putting a value in a channel is just like passing a value to a function
+    - If value passed in is a value type (i.e. int or string) a copy of the data is made
+    - changes made to the data in the recieving Goroutine have no effect on data in the sending Goroutine
+
+    - If the value is a reference type (pointer, map, or slice) a pointer to the data is put on the channel
+    - Any changes made to the data in the recieving Goroutine will modify the data in the sending Goroutine.
+        - *** Be careful when sending reference types over channels
+        - *** In general, do not modify a reference type var after sending it over a channel

@@ -10,5 +10,5 @@ func main() {
 }
 
 func runMe() {
-	fmt.Println("Hello, this is a goroutine")
+	fmt.Println("Hello from inside a go routine")
 }

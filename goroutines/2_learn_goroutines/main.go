@@ -6,7 +6,7 @@ import (
 )
 
 func runMe() {
-	fmt.Println("Hello, this is a go routine")
+	fmt.Println("Hello from inside a go routine")
 }
 
 func main() {

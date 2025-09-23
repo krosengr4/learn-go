@@ -1,5 +1,8 @@
 *** Channels ***
 
+- The zero value for a channel is niL!
+    - Reading or writing from a nil channel would make your Goroutine hang forever
+
 - Channels = A type in Go for transferring data between goroutines
 - One (or more) goroutines write to a Channel
 - One (or more) goroutines read back from the same channel 

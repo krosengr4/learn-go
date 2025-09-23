@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func main() {
+	// Create unbuffered in and out channels
 	in := make(chan int)
 	out := make(chan int)
 
